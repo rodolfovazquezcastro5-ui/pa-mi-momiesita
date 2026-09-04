@@ -598,7 +598,7 @@ const player      = document.querySelector(".player");
 const progressBar = document.getElementById("progressBar");
 
 // CAMBIO AQUÍ: Agregamos "m/" antes del nombre para entrar a la carpeta
-audioPlayer.src = "m/cancioncita.mp3";
+audioPlayer.src = "metro/cancioncita.mp3";
 
 // 1. Control del Click en el botón de reproducción
 playButton.addEventListener("click", () => {
