@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Para ti</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+
+    <!-- =========================================================
+         INTRO
+    ========================================================== -->
+
+    <div id="intro" class="screen active">
+
+        <canvas id="introCanvas"></canvas>
+
+        <div class="intro-content">
+
+            <div class="tiny-label">
+                04 · 09 · 2026
+            </div>
+
+            <h1>
+                Antes de seguir,
+                <span>quédate un momento.</span>
+            </h1>
+
+            <p>
+                No tienes que leer nada todavía.
+            </p>
+
+            <button id="beginButton" class="minimal-button">
+                entrar
+                <span>→</span>
+            </button>
+
+        </div>
+
+        <div class="scroll-hint">
+            <span></span>
+        </div>
+
+    </div>
+
+
+    <!-- =========================================================
+         EXPERIENCIA PRINCIPAL
+    ========================================================== -->
+
+    <main id="experience" class="hidden">
+
+
+        <!-- =====================================================
+             CIELO
+        ====================================================== -->
+
+        <section id="skySection" class="experience-section sky-section">
+
+            <canvas id="skyCanvas"></canvas>
+
+            <div class="section-overlay">
+
+                <div class="section-number">
+                    01
+                </div>
+
+                <div class="sky-copy">
+
+                    <span class="eyebrow">
+                        mira con calma
+                    </span>
+
+                    <h2>
+                        Hay estrellas
+                        <br>
+                        que no se ven
+                        <em>hasta que las buscas.</em>
+                    </h2>
+
+                    <p>
+                        Mueve el cursor por el cielo.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div id="constellationMessage" class="constellation-message">
+
+                <span class="message-small">
+                    encontraste algo
+                </span>
+
+                <span id="constellationText"></span>
+
+            </div>
+
+            <div class="sky-counter">
+                <span id="starCount">0</span>
+                <small>/ 7</small>
+            </div>
+
+        </section>
+
+
+
+                <!-- =====================================================
+                     MÚSICA
+        ====================================================== -->
+
+        <section id="musicSection" class="experience-section music-section">
+
+            <div class="section-number">
+                02
+            </div>
+
+            <div class="music-layout">
+
+                <div class="music-intro">
+
+                    <span class="eyebrow">
+                        una pausa
+                    </span>
+
+                    <h2>
+                        Hay cosas que
+                        <em>se sienten mejor</em>
+                        sin explicarlas.
+                    </h2>
+
+                    <p>
+                        Esta parte está hecha para cuando quieras
+                        quedarte aquí un rato.
+                    </p>
+
+                </div>
+
+
+                <div class="player">
+
+                    <div class="player-top">
+
+                        <span class="player-label">
+                            PLAYLIST
+                        </span>
+
+                        <span id="trackNumber">
+                            01
+                        </span>
+
+                    </div>
+
+
+                    <div class="record-area">
+
+                        <div class="record-shadow"></div>
+
+                        <div class="record">
+
+                            <div class="record-center">
+                                <span>♪</span>
+                            </div>
+
+                        </div>
+
+                        <div class="needle"></div>
+
+                    </div>
+
+
+                    <div class="track-info">
+
+                        <span class="track-title">
+                            aquí puedes poner una canción
+                        </span>
+
+                        <span class="track-artist">
+                            para escuchar mientras sigues
+                        </span>
+
+                    </div>
+
+
+                    <div class="waveform" id="waveform">
+
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                        <span></span>
+
+                    </div>
+
+
+                    <div class="player-controls">
+
+                        <button id="prevTrack">
+                            ←
+                        </button>
+
+                        <button id="playButton" class="play-button">
+                            <span id="playIcon">▶</span>
+                        </button>
+
+                        <button id="nextTrack">
+                            →
+                        </button>
+
+                    </div>
+
+
+                    <div class="progress-line">
+
+                        <div id="progressBar"></div>
+
+                    </div>
+
+
+                    <!-- Archivo enlazado aquí abajo -->
+                    <audio id="audioPlayer" src="m/cancioncita.mp3" preload="auto"></audio>
+
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+        <!-- =====================================================
+             PINTURA
+        ====================================================== -->
+
+        <section id="paintingSection" class="experience-section painting-section">
+
+            <div class="section-number">
+                03
+            </div>
+
+            <div class="painting-header">
+
+                <span class="eyebrow">
+                    haz algo tuyo
+                </span>
+
+                <h2>
+                    No todo tiene que
+                    <em>estar terminado.</em>
+                </h2>
+
+                <p>
+                    Puedes dejar aquí cualquier cosa.
+                    Un garabato, una forma, lo que quieras.
+                </p>
+
+            </div>
+
+
+            <div class="canvas-wrapper">
+
+                <canvas id="paintingCanvas"></canvas>
+
+                <div class="canvas-corner top-left"></div>
+                <div class="canvas-corner top-right"></div>
+                <div class="canvas-corner bottom-left"></div>
+                <div class="canvas-corner bottom-right"></div>
+
+                <div class="canvas-label">
+                    <span>untitled</span>
+                    <span id="brushPosition">000 × 000</span>
+                </div>
+
+            </div>
+
+
+            <div class="paint-controls">
+
+                <div class="brush-selector">
+
+                    <span>
+                        pincel
+                    </span>
+
+                    <button data-size="2"></button>
+                    <button data-size="4" class="selected"></button>
+                    <button data-size="8"></button>
+                    <button data-size="14"></button>
+
+                </div>
+
+                <button id="clearCanvas" class="text-button">
+                    limpiar
+                </button>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             GUITARRA
+        ====================================================== -->
+
+        <section id="guitarSection" class="experience-section guitar-section">
+
+            <div class="section-number">
+                04
+            </div>
+
+            <div class="guitar-copy">
+
+                <span class="eyebrow">
+                    seis cuerdas
+                </span>
+
+                <h2>
+                    Toca lo que quieras.
+                </h2>
+
+                <p>
+                    No necesitas saber tocar.
+                    Solo prueba.
+                </p>
+
+            </div>
+
+
+            <div class="guitar-container">
+
+                <div class="guitar-neck">
+
+                    <div class="guitar-head">
+
+                        <div class="tuning-dot"></div>
+                        <div class="tuning-dot"></div>
+                        <div class="tuning-dot"></div>
+
+                    </div>
+
+
+                    <div class="frets">
+
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+                        <div class="fret"></div>
+
+                    </div>
+
+
+                    <div class="strings">
+
+                        <button data-string="0"></button>
+                        <button data-string="1"></button>
+                        <button data-string="2"></button>
+                        <button data-string="3"></button>
+                        <button data-string="4"></button>
+                        <button data-string="5"></button>
+
+                    </div>
+
+
+                    <div class="guitar-body">
+
+                        <div class="sound-hole">
+
+                            <div></div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="chord-display">
+
+                <span id="chordName">
+                    —
+                </span>
+
+                <small>
+                    toca una cuerda
+                </small>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             JARDÍN
+        ====================================================== -->
+
+        <section id="gardenSection" class="experience-section garden-section">
+
+            <canvas id="gardenCanvas"></canvas>
+
+            <div class="garden-copy">
+
+                <span class="eyebrow">
+                    después de todo
+                </span>
+
+                <h2>
+                    Algunas cosas
+                    <br>
+                    <em>crecen despacio.</em>
+                </h2>
+
+                <p>
+                    Cada flor apareció por una pequeña parte
+                    de este recorrido.
+                </p>
+
+            </div>
+
+
+            <div id="garden">
+
+                <div class="flower flower-1">
+                    <div class="stem"></div>
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
+
+                <div class="flower flower-2">
+                    <div class="stem"></div>
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
+
+                <div class="flower flower-3">
+                    <div class="stem"></div>
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
+
+                <div class="flower flower-4">
+                    <div class="stem"></div>
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
+
+                <div class="flower flower-5">
+                    <div class="stem"></div>
+                    <div class="petal p1"></div>
+                    <div class="petal p2"></div>
+                    <div class="petal p3"></div>
+                    <div class="petal p4"></div>
+                    <div class="center"></div>
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =====================================================
+             LIBRO
+        ====================================================== -->
+
+        <section id="bookSection" class="experience-section book-section">
+
+            <div class="section-number">
+                06
+            </div>
+
+
+            <div class="book-intro">
+
+                <span class="eyebrow">
+                    antes de terminar
+                </span>
+
+                <h2>
+                    Hay algo que
+                    <em>sí quiero que leas.</em>
+                </h2>
+
+            </div>
+
+
+            <div class="book">
+
+                <div class="book-cover">
+
+                    <div class="cover-inner">
+
+                        <span class="book-small">
+                            para ti
+                        </span>
+
+                        <span class="book-date">
+                            2024 — ∞
+                        </span>
+
+                        <div class="cover-symbol">
+                            ✦
+                        </div>
+
+                        <span class="book-bottom">
+                            abrir
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="book-page left-page">
+
+                    <div class="page-content">
+
+                        <span class="page-number">
+                            01
+                        </span>
+
+                        <div class="page-decoration">
+                            ❦
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="book-page right-page">
+
+                    <div class="page-content letter-page">
+
+                        <span class="page-number">
+                            02
+                        </span>
+
+
+                        <!-- =================================================
+                             CARTA
+                             
+                             PEGA TU CARTA DENTRO DE ESTE DIV.
+                        ================================================== -->
+
+                        <div class="letter-content">
+
+                            <!-- CARTA -->
+
+                        </div>
+
+
+                        <div class="letter-end">
+                            <span>—</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div class="book-controls">
+
+                <button id="openBook" class="book-button">
+                    abrir el libro
+                </button>
+
+            </div>
+
+
+            <div class="final-message">
+
+                <span>
+                    fin
+                </span>
+
+                <p>
+                    gracias por quedarte hasta aquí.
+                </p>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================================================
+         CURSOR
+    ========================================================== -->
+
+    <div id="cursor">
+        <div id="cursorDot"></div>
+        <div id="cursorRing"></div>
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
